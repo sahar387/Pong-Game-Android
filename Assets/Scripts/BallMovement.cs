@@ -10,7 +10,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField]
     private float speedIncrease = 0.25f;
     [SerializeField]
-    private Text playerScore;
+    private Text PlayerScore;
     [SerializeField]
     private Text AIScore;
 
@@ -76,10 +76,22 @@ public class BallMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision object: " + collision.gameObject.name);
+
+        if (PlayerScore == null)
+        {
+            Debug.LogError("PlayerScore is not assigned!");
+        }
+
+        if (AIScore == null)
+        {
+            Debug.LogError("AIScore is not assigned!");
+        }
         if (transform.position.x > 0)
         {
             ResetBall();
-            playerScore.text = (int.Parse(playerScore.text) + 1).ToString();
+            PlayerScore.text = (int.Parse(PlayerScore.text) + 1).ToString();
+
         }
         else if (transform.position.x < 0)
         {

@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -218, y: -177}
+  m_AnchoredPosition: {x: -221, y: -183}
   m_SizeDelta: {x: 67.58, y: 61.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128264454
@@ -211,7 +211,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &128264455
 MonoBehaviour:
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 267171836}
   - component: {fileID: 267171837}
   m_Layer: 5
-  m_Name: BoxCollider
+  m_Name: PlayerSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 272371184}
   - component: {fileID: 272371185}
   m_Layer: 5
-  m_Name: BoxCollider (3)
+  m_Name: DownSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +632,6 @@ GameObject:
   m_Component:
   - component: {fileID: 518725029}
   - component: {fileID: 518725030}
-  - component: {fileID: 518725031}
   m_Layer: 5
   m_Name: AIGoal
   m_TagString: Untagged
@@ -705,19 +704,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 253.27867, y: 1636.7864}
   m_EdgeRadius: 0
---- !u!114 &518725031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518725028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09f3b35dedc440a43a038828d2d375fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1389559477}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +852,7 @@ GameObject:
   - component: {fileID: 706178711}
   - component: {fileID: 706178712}
   m_Layer: 5
-  m_Name: BoxCollider (1)
+  m_Name: AISide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1033,7 +1019,6 @@ RectTransform:
   m_Children:
   - {fileID: 951707544}
   - {fileID: 128264453}
-  - {fileID: 1678195026}
   - {fileID: 2141990581}
   - {fileID: 1389559479}
   - {fileID: 927850630}
@@ -1042,6 +1027,7 @@ RectTransform:
   - {fileID: 843013780}
   - {fileID: 1736444927}
   - {fileID: 1469295204}
+  - {fileID: 1678195026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1197,7 +1183,7 @@ GameObject:
   - component: {fileID: 843013785}
   m_Layer: 5
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1341,9 +1327,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 843013779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab5e75fc92871ad4b9e061d2da64772b, type: 3}
+  m_Script: {fileID: 11500000, guid: 11563e09aa034194e8e2689d65a827ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 15
+  isAI: 0
+  ball: {fileID: 2141990580}
 --- !u!1 &927850627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1581,7 @@ GameObject:
   - component: {fileID: 1294453590}
   - component: {fileID: 1294453591}
   m_Layer: 5
-  m_Name: BoxCollider (2)
+  m_Name: UpSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,7 +1664,7 @@ GameObject:
   - component: {fileID: 1389559478}
   - component: {fileID: 1389559477}
   m_Layer: 5
-  m_Name: playerScore
+  m_Name: PlayerScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,7 +2040,7 @@ RectTransform:
   m_GameObject: {fileID: 1678195024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 97.42786}
-  m_LocalScale: {x: 0.0070477324, y: 0.0070477324, z: 0.0070477324}
+  m_LocalScale: {x: 1.1065927, y: 0.89168537, z: 0.0070477324}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1451842692}
@@ -2060,7 +2049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.9907917e+9, y: 2.9930936e+9}
+  m_AnchoredPosition: {x: -0.000042905, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730013610
@@ -2073,7 +2062,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1730013611}
   - component: {fileID: 1730013612}
-  - component: {fileID: 1730013613}
   m_Layer: 5
   m_Name: PlayerGoal
   m_TagString: Untagged
@@ -2146,19 +2134,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 166.51666, y: 1594.4832}
   m_EdgeRadius: 0
---- !u!114 &1730013613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730013610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09f3b35dedc440a43a038828d2d375fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 927850628}
 --- !u!1 &1736444926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2150,7 @@ GameObject:
   - component: {fileID: 1736444928}
   m_Layer: 5
   m_Name: AI
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2896,7 +2871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 13.4
   speedIncrease: 0.25
-  playerScore: {fileID: 0}
+  PlayerScore: {fileID: 1389559477}
   AIScore: {fileID: 927850628}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
